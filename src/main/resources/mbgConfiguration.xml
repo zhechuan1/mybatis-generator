@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 第一种mybatis逆向生成xml配置 -->
+<generatorConfiguration>
+    <properties resource="jdbc.properties" />
+    <context id="sqlserverTables" targetRuntime="MyBatis3">
+    <!--支持selectAll-->
+    <!--<context id="sqlserverTables" targetRuntime="MyBatis3Simple">-->
+        <!-- 生成的pojo，将implements Serializable-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- 数据库链接URL、用户名、密码 -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!--
+        默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
+            true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal
+        -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--
+        生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如./src/main/java，
+        也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下
+        -->
+        <!--<javaModelGenerator targetPackage="com.joey.mybaties.test.pojo" targetProject="MAVEN">-->
+        <!--<javaModelGenerator targetPackage="com.yyc.entity" targetProject="./src/main/java">-->
+        <javaModelGenerator targetPackage="com.cetccity.operationcenter.webframework.web.model" targetProject="./src/main/java/">
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格  -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--对应的mapper.xml文件  -->
+        <!--<sqlMapGenerator targetPackage="mappers" targetProject="./src/main/resources">-->
+        <sqlMapGenerator targetPackage="com.cetccity.operationcenter.webframework.web.dao" targetProject="./src/main/java/">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 对应的Mapper接口类文件 -->
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.yyc.dao" targetProject="./src/main/java">-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cetccity.operationcenter.webframework.web.dao" targetProject="./src/main/java/">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
+        <!--<table tableName="user_t" domainObjectName="UserInfo"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="true" selectByExampleQueryId="false" >-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--</table>-->
+        <!--<table tableName="HEDAO_002" domainObjectName="HEAD_002"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="true" selectByExampleQueryId="false" >-->
+        <!--</table>-->
+        <!--<table tableName="tb_real_time_news" domainObjectName="RealTimeNews"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="true" selectByExampleQueryId="false" >-->
+            <!--&lt;!&ndash; 注意，该属性只针对MyBatis3Simple有用；-->
+            <!--如果选择的runtime是MyBatis3Simple，那么会生成一个SelectAll方法，如果指定了selectAllOrderByClause，那么会在该SQL中添加指定的这个order条件；-->
+         <!--&ndash;&gt;-->
+            <!--&lt;!&ndash;<property name="selectAllOrderByClause" value="create_date"/>&ndash;&gt;-->
+        <!--</table>-->
+
+
+        <table tableName="tb_contact_book" domainObjectName="ContactBook"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+
+
+        <!--1-->
+        <table tableName="SHUIKU_001" domainObjectName="SHUIKU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--2-->
+        <table tableName="HEDAO_001" domainObjectName="HEDAO_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false">
+        </table>
+        <!--3-->
+        <table tableName="HAIDI_001" domainObjectName="HAIDI_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--4-->
+        <table tableName="SHUIZHA_001" domainObjectName="SHUIZHA_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--5-->
+        <table tableName="PAISHUIBENGZHAN_001" domainObjectName="PAISHUIBENGZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--6-->
+        <table tableName="JISHUIBENGZHAN_001" domainObjectName="JISHUIBENGZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--7-->
+        <table tableName="JISHUICHANG_001" domainObjectName="JISHUICHANG_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--8-->
+        <table tableName="BINANZHONGXIN_001" domainObjectName="BINANZHONGXIN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--9-->
+        <table tableName="BINANCHANGSUO_001" domainObjectName="BINANCHANGSUO_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--10-->
+        <table tableName="SANFANGWUZI_001" domainObjectName="SANFANGWUZI_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--11-->
+        <table tableName="QIANGXIANDUIWU_001" domainObjectName="QIANGXIANDUIWU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--12-->
+        <table tableName="YILAODIAN_001" domainObjectName="YILAODIAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--13-->
+        <table tableName="JILAODIAN_001" domainObjectName="JILAODIAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--14-->
+        <table tableName="JILAOZAIQING_001" domainObjectName="JILAOZAIQING_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--15-->
+        <table tableName="DUICHANG_001" domainObjectName="DUICHANG_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--16-->
+        <table tableName="YILIAOJIGOU_001" domainObjectName="YILIAOJIGOU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--17-->
+        <table tableName="WUZICANGKU_001" domainObjectName="WUZICANGKU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--18-->
+        <table tableName="WENTIZHONGXIN_001" domainObjectName="WENTIZHONGXIN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--19-->
+        <table tableName="QICHEZHAN_001" domainObjectName="QICHEZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--20-->
+        <table tableName="DASHAGUANGCHANG_001" domainObjectName="DASHAGUANGCHANG_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--21-->
+        <table tableName="DIXIANDIAN_001" domainObjectName="DIXIANDIAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--22-->
+        <table tableName="HUAPODIAN_001" domainObjectName="HUAPODIAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--23-->
+        <table tableName="GONGCHENGJIANZHU_001" domainObjectName="GONGCHENGJIANZHU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--24-->
+        <table tableName="JIAOYUJIGOU_001" domainObjectName="JIAOYUJIGOU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--25-->
+        <table tableName="YOUQIZHAN_001" domainObjectName="YOUQIZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--26-->
+        <table tableName="RANQIZHAN_001" domainObjectName="RANQIZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--27-->
+        <table tableName="YOUKU_001" domainObjectName="YOUKU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--28-->
+        <table tableName="HEDIANZHAN_001" domainObjectName="HEDIANZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--29-->
+        <table tableName="WEIHUADIAN_001" domainObjectName="WEIHUADIAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--30-->
+        <table tableName="LVYOUJINGDIAN_001" domainObjectName="LVYOUJINGDIAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--31-->
+        <table tableName="GANGKOUMATOU_001" domainObjectName="GANGKOUMATOU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--32-->
+        <table tableName="GAOTIEHUOCHEZHAN_001" domainObjectName="GAOTIEHUOCHEZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--33-->
+        <table tableName="DITIEZHAN_001" domainObjectName="DITIEZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--34-->
+        <table tableName="KOUAN_001" domainObjectName="KOUAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--35-->
+        <table tableName="WENHUACHANGSUO_001" domainObjectName="WENHUACHANGSUO_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--36-->
+        <table tableName="TIYUCHANGSUO_001" domainObjectName="TIYUCHANGSUO_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--37-a-->
+        <table tableName="SHUIKU_002" domainObjectName="SHUIKU_002"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--37-b-->
+        <table tableName="SHUIKUYUSHUIQING_001" domainObjectName="SHUIKUYUSHUIQING_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--38-a-->
+        <table tableName="HEDAO_002" domainObjectName="HEDAO_002"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--38-b-->
+        <table tableName="HEDAOYUSHUIQING_001" domainObjectName="HEDAOYUSHUIQING_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--39-->
+        <table tableName="QIXIANGJIANCEZHAN_001" domainObjectName="QIXIANGJIANCEZHAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--40-->
+        <table tableName="QIXIANGJIANCE_001" domainObjectName="QIXIANGJIANCE_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+
+        <!--41-->
+        <table tableName="TAIFENGLUJING_001" domainObjectName="TAIFENGLUJING_001"
+            enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--42-->
+        <table tableName="SENLINHUOZAI_001" domainObjectName="SENLINHUOZAI_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--43-->
+        <table tableName="LEIDIANYUJING_001" domainObjectName="LEIDIANYUJING_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--44-->
+        <table tableName="QIXIANGYUJING_001" domainObjectName="QIXIANGYUJING_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--45-->
+        <table tableName="YUJINGXINXI_001" domainObjectName="YUJINGXINXI_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--46-->
+        <table tableName="HAIQUFENGLIJIANCEZIDONGZHAN_005" domainObjectName="HAIQUFENGLIJIANCEZIDONGZHAN_005"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--47-->
+        <table tableName="HAIQUFENGLIJIANCEZIDONGJIANCE_005" domainObjectName="HAIQUFENGLIJIANCEZIDONGJIANCE_005"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--48-->
+        <table tableName="RENKOUFENQUTJ_001" domainObjectName="RENKOUFENQUTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--49-->
+        <table tableName="RENKOUJIEGOUTJ_001" domainObjectName="RENKOUJIEGOUTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--50-->
+        <table tableName="FARENQUYUTJ_001" domainObjectName="FARENQUYUTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--51-->
+        <table tableName="FARENHANGYETJ_001" domainObjectName="FARENHANGYETJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--52-->
+        <table tableName="FANGWULEIXINGTJ_001" domainObjectName="FANGWULEIXINGTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--53-->
+        <table tableName="SHANGSHIZHUTI_001" domainObjectName="SHANGSHIZHUTI_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--54-->
+        <table tableName="ANQUANSHENGCHANTJ_001" domainObjectName="ANQUANSHENGCHANTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--55-->
+        <table tableName="QIYEHEIMINGDAN_001" domainObjectName="QIYEHEIMINGDAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--56-->
+        <table tableName="ANQUANBIAOZHUNHUAQIYE_001" domainObjectName="ANQUANBIAOZHUNHUAQIYE_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--57-->
+        <table tableName="WEIHUAPINQIYE_001" domainObjectName="WEIHUAPINQIYE_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--58-->
+        <table tableName="WEIHUAPINXUKEYUJING_001" domainObjectName="WEIHUAPINXUKEYUJING_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--59-->
+        <table tableName="ZHONGDAWEIXIANYUAN_001" domainObjectName="ZHONGDAWEIXIANYUAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--60-->
+        <table tableName="FHENCHENSHEBAOQIYE_001" domainObjectName="FHENCHENSHEBAOQIYE_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--61-->
+        <table tableName="YIZHIDUHUAPINQIYE_001" domainObjectName="YIZHIDUHUAPINQIYE_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--62-->
+        <table tableName="ZHONGDAYINHUAN_001" domainObjectName="ZHONGDAYINHUAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--63-->
+        <table tableName="ANQUANSHIGU_001" domainObjectName="ANQUANSHIGU_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--64-->
+        <table tableName="DAISHOULIAJ_001" domainObjectName="DAISHOULIAJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--65-->
+        <table tableName="DAIPAIQIANAJ_001" domainObjectName="DAIPAIQIANAJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--66-->
+        <table tableName="TUIHUIAJ_001" domainObjectName="TUIHUIAJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--67-->
+        <table tableName="DAIBANJIEAJ_001" domainObjectName="DAIBANJIEAJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--68-->
+        <table tableName="CHULIZHONGAJ_001" domainObjectName="CHULIZHONGAJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--69-->
+        <table tableName="YIBANJIEAJ_001" domainObjectName="YIBANJIEAJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--70-->
+        <table tableName="YANSHIHEZHUN_001" domainObjectName="YANSHIHEZHUN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--71-->
+        <table tableName="WEIHUO_TONGJI_001" domainObjectName="WEIHUO_TONGJI_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--72-->
+        <table tableName="WEIHUO_QIYE_001" domainObjectName="WEIHUO_QIYE_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--73-->
+        <table tableName="WEIHUO_CHELIANGJIANKONG_001" domainObjectName="WEIHUO_CHELIANGJIANKONG_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--74-->
+        <table tableName="WEIHUO_RENYUAN_001" domainObjectName="WEIHUO_RENYUAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--75-->
+        <table tableName="WEIHUO_TINGCHECHANG_001" domainObjectName="WEIHUO_TINGCHECHANG_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--76-->
+        <table tableName="WEIHUO_YUNDAN_001" domainObjectName="WEIHUO_YUNDAN_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--77-->
+        <table tableName="WEIHUO_SHANGXIANTJ_001" domainObjectName="WEIHUO_SHANGXIANTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--78-->
+        <table tableName="WEIHUO_BAOJINGTJ_001" domainObjectName="WEIHUO_BAOJINGTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--79-->
+        <table tableName="WEIHUO_CHAOSUTJ_001" domainObjectName="WEIHUO_CHAOSUTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--80-->
+        <table tableName="WEIHUO_DIAOXIANTJ_001" domainObjectName="WEIHUO_DIAOXIANTJ_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+        <!--81-->
+        <table tableName="WEIHUO_JSYYSQKFX_001" domainObjectName="WEIHUO_JSYYSQKFX_001"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>
+
+
+    </context>
+</generatorConfiguration>
